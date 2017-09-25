@@ -1,0 +1,16 @@
+body {
+    background: #f4f4f4;
+}
+
+h1, h5 {
+    color: #fff;
+}
+
+.container {
+    background-color:  #000;
+    text-align: center;
+}
+
+#data {
+    color: #fff;
+}

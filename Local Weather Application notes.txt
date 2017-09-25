@@ -1,0 +1,16 @@
+Local Weather App
+
+-Design
+	
+	--Background Color
+	--Title - "Local Weather App"
+	--Shows current weather in current location
+	--Shows different icon or background image 		dependent on weather
+	--Button to toggle between F and C
+
+-Implementation/Functionality
+
+	--Need to grab Geo-location coordinates 		(latitude & longitude) 
+	--Need to use a weather API to grab all 		weather data
+	--Need some type of 'if' statement for 		updating icon or background image
+	--Need a conversion function to convert 		Fahrenheit to Celsius and vice versa
