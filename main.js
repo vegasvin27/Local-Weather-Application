@@ -1,13 +1,11 @@
 $(document).ready(function() {
 
      //Grabbing Geo-location coordinates
-     var lat = 0;
-     var long = 0;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                lat = position.coords.latitude;
-                long = position.coords.longitude;
-              $("#data").html("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                $("#data").html("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
                 console.log(position.coords.latitude,  position.coords.longitude);
                 $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid=b52681a81662a7533c219afee17a3dee", function(data) {
                 console.log(data);
