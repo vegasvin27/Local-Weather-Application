@@ -14,3 +14,20 @@ h1, h5 {
 #data {
     color: #fff;
 }
+
+button {
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #f4f4f4;
+}
+
+/* #test {
+    display: none;
+    color: #fff;
+} */
+
+p {
+    color: #fff;
+}
+
