@@ -19,7 +19,7 @@ $(document).ready(function () {
                 console.log(windSpeed);
                 //console.log(currentTemp);
                 $('#name').append(cityName);
-                const cloudiness = data.weather[0].description;
+                const cloudiness = data.weather[0].main;
                 const icon = data.weather[0].icon;
                 const iconLink = ('http://openweathermap.org/img/w/'+icon+'.png');
                 console.log(iconLink);
@@ -27,13 +27,14 @@ $(document).ready(function () {
                 console.log(icon);
                 $("#clouds").append(cloudiness);
                 $("#icon").html("<img src='" + iconLink + "'>");
-                
+                const windDegrees = data.wind.deg;
+                console.log(windDegrees);
 
                 //Function to convert Kelivin to Fahrenheit
                 var fahrenheit = parseFloat((currentTemp * (9 / 5)) - 459.67).toFixed(1);
                 function convertToK(currentTemp) {
                     console.log(fahrenheit);
-                    $('#fah').append(fahrenheit + 'F');
+                    $('#fah').append(fahrenheit + ' &#8457;');
                     //$('#temp').append($("button"));
                 }
 
@@ -43,7 +44,7 @@ $(document).ready(function () {
                 var celsius = parseFloat((fahrenheit - 32) * (5 / 9)).toFixed(1);
                 function convertToC(fahrenheit) {
                     console.log(celsius);
-                    $('#cel').append(celsius + 'C');
+                    $('#cel').append(celsius + ' &#8451;');
                 }
                 convertToC(fahrenheit);
 
@@ -63,15 +64,25 @@ $(document).ready(function () {
                     //const speed = 2.237;
                     var mph = parseFloat((windSpeed * 2.237).toFixed(1));
                     console.log(mph);
-                    $('#windSpeed').append(mph + ' mph');
+                    $('#windSpeed').append(mph + ' mph ');
                 }
                 convertWindSpeed(windSpeed);
 
+                function degToCompass(windDegrees) {
+                    var val = Math.floor((windDegrees / 22.5) + 0.5);
+                    var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+                    var direction = (arr[(val % 16)]);
+                    console.log(direction);
+                    console.log(val);
+                    $('#windSpeed').append(direction);
+                }
 
-                $("#button").click(function () {
+                degToCompass(windDegrees);
+
+                $("button").click(function () {
                     /*  $("#button1").remove();
                      $("#button2").toggle('button2'); */
-                    $("p").toggle('cel');
+                    $(".tp").toggle('cel');
                 });
             });
         });
